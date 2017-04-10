@@ -8,11 +8,12 @@ function setup() {
   createCanvas(window.innerWidth, window.innerHeight);
 
   var colors = [
-    color(20, 35, 29),
-    color(105, 96, 121),
-    color(41, 78, 90),
-    color(72, 108, 103),
-    color(132, 143, 125)
+    color(41, 128, 185), //blue
+    color(142, 68, 173), //purple
+    color(192, 80, 80), //red
+    color(22, 160, 133), //teal
+    color(39, 174, 96), //green
+    color(128, 0, 0) //maroon
   ]
 
   bg_color = colors[Math.floor(Math.random()*colors.length)];
@@ -23,17 +24,19 @@ function draw() {
   background(bg_color);
 
   stroke(255, 255, 255, 100);
-  fill(255, 255, 255, 100);
+  fill(255, 255, 255, 50);
   new_radius = calculateRadius(base_radius, dRadius, angle);
   ellipse(window.innerWidth/2, window.innerHeight/2, new_radius, new_radius);
   angle += 0.015;
 
+  dateString = str(month()) + "." + str(day());
   timeString = str(hour()) + "." + str(minute()) + "." + str(second());
   textAlign(CENTER, CENTER);
   stroke(250);
   fill(250);
   textSize(24);
   text(timeString, window.innerWidth/2, window.innerHeight-40);
+  text(dateString, window.innerWidth/2, window.innerHeight-68);
 
   fill(bg_color);
   stroke(bg_color);
